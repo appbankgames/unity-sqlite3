@@ -1,0 +1,254 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E105366A167AB22C0083BA6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1053669167AB22C0083BA6D /* Foundation.framework */; };
+		E105366C167AB23A0083BA6D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E105366B167AB23A0083BA6D /* libsqlite3.dylib */; };
+		E118D0C216806E8B001BE4BD /* SQLitePlugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E118D0BE16806E8B001BE4BD /* SQLitePlugin-Info.plist */; };
+		E118D0C316806E8B001BE4BD /* SQLitePlugin.mm in Sources */ = {isa = PBXBuildFile; fileRef = E118D0C116806E8B001BE4BD /* SQLitePlugin.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E1053658167AB1A60083BA6D /* SQLitePlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SQLitePlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E105365B167AB1A60083BA6D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		E1053669167AB22C0083BA6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E105366B167AB23A0083BA6D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		E118D0BE16806E8B001BE4BD /* SQLitePlugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SQLitePlugin-Info.plist"; sourceTree = "<group>"; };
+		E118D0BF16806E8B001BE4BD /* SQLitePlugin-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SQLitePlugin-Prefix.pch"; sourceTree = "<group>"; };
+		E118D0C116806E8B001BE4BD /* SQLitePlugin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SQLitePlugin.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1053655167AB1A60083BA6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E105366C167AB23A0083BA6D /* libsqlite3.dylib in Frameworks */,
+				E105366A167AB22C0083BA6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E105364D167AB1A60083BA6D = {
+			isa = PBXGroup;
+			children = (
+				E118D0C016806E8B001BE4BD /* Sources */,
+				E118D0BD16806E8B001BE4BD /* Resources */,
+				E105365A167AB1A60083BA6D /* Frameworks */,
+				E1053659167AB1A60083BA6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1053659167AB1A60083BA6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1053658167AB1A60083BA6D /* SQLitePlugin.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E105365A167AB1A60083BA6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E105366B167AB23A0083BA6D /* libsqlite3.dylib */,
+				E1053669167AB22C0083BA6D /* Foundation.framework */,
+				E105365B167AB1A60083BA6D /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E118D0BD16806E8B001BE4BD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E118D0BE16806E8B001BE4BD /* SQLitePlugin-Info.plist */,
+				E118D0BF16806E8B001BE4BD /* SQLitePlugin-Prefix.pch */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E118D0C016806E8B001BE4BD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E118D0C116806E8B001BE4BD /* SQLitePlugin.mm */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1053657167AB1A60083BA6D /* SQLitePlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1053666167AB1A60083BA6D /* Build configuration list for PBXNativeTarget "SQLitePlugin" */;
+			buildPhases = (
+				E1053654167AB1A60083BA6D /* Sources */,
+				E1053655167AB1A60083BA6D /* Frameworks */,
+				E1053656167AB1A60083BA6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SQLitePlugin;
+			productName = SQLitePlugin;
+			productReference = E1053658167AB1A60083BA6D /* SQLitePlugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E105364F167AB1A60083BA6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = AppBankGames;
+			};
+			buildConfigurationList = E1053652167AB1A60083BA6D /* Build configuration list for PBXProject "SQLitePlugin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E105364D167AB1A60083BA6D;
+			productRefGroup = E1053659167AB1A60083BA6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1053657167AB1A60083BA6D /* SQLitePlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1053656167AB1A60083BA6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E118D0C216806E8B001BE4BD /* SQLitePlugin-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1053654167AB1A60083BA6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E118D0C316806E8B001BE4BD /* SQLitePlugin.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E1053664167AB1A60083BA6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E1053665167AB1A60083BA6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E1053667167AB1A60083BA6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Resources/SQLitePlugin-Prefix.pch";
+				INFOPLIST_FILE = "Resources/SQLitePlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E1053668167AB1A60083BA6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Resources/SQLitePlugin-Prefix.pch";
+				INFOPLIST_FILE = "Resources/SQLitePlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1053652167AB1A60083BA6D /* Build configuration list for PBXProject "SQLitePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1053664167AB1A60083BA6D /* Debug */,
+				E1053665167AB1A60083BA6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1053666167AB1A60083BA6D /* Build configuration list for PBXNativeTarget "SQLitePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1053667167AB1A60083BA6D /* Debug */,
+				E1053668167AB1A60083BA6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E105364F167AB1A60083BA6D /* Project object */;
+}
