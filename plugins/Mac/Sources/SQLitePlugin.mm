@@ -59,15 +59,16 @@
     // Generate the database path name
     NSString *dbPath = nil;
     
+    // Use the default directory if necessary.
     if (dbDirectory == nil)
     {
-        dbPath = [dbDirectory stringByAppendingPathComponent:self.dbFilename];
+       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
+       NSString *documentsDir = [paths objectAtIndex:0];
+       dbPath = [documentsDir stringByAppendingPathComponent:self.dbFilename];
     }
     else
     {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
-        NSString *documentsDir = [paths objectAtIndex:0];
-        dbPath = [documentsDir stringByAppendingPathComponent:self.dbFilename];
+       dbPath = [dbDirectory stringByAppendingPathComponent:self.dbFilename];
     }
     
     // Open the SQLite database with the input filename. See if we were able to open it.
@@ -211,7 +212,8 @@ bool _SQLitePlugin_OpenDB(void *instance, const char *dbFilename)
 bool _SQLitePlugin_OpenDBWithDirectory(void *instance, const char *dbFilename, const char* dbDirectory)
 {
 	SQLitePlugin *sqlitePlugin = (SQLitePlugin *)instance;
-	return [sqlitePlugin openDB:dbFilename withDirectory:[NSString stringWithUTF8String:dbDirectory]];
+    NSString* directoryString = [NSString stringWithUTF8String:dbDirectory];
+	return [sqlitePlugin openDB:dbFilename withDirectory:directoryString];
 }
 
 void _SQLitePlugin_CloseDB(void *instance)
