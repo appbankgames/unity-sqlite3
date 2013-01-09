@@ -17,6 +17,7 @@
 
 - (id)initWithGameObjectName:(const char *)gameObjectName_;
 - (bool)openDB:(const char *)dbFilename_;
+- (bool)openDB:(const char *)dbFilename_ withDirectory:(NSString*)dbDirectory;
 - (void)closeDB;
 - (int)executeQuery:(const char *)queryString;
 - (bool)executeRowQuery:(const char*)queryString withRows:(const char ***)outRows andNumValues:(int *)outNumValues;
@@ -47,24 +48,42 @@
 }
 
 - (bool)openDB:(const char *)dbFilename_
-{   
+{
+    return [self openDB: dbFilename_ withDirectory:nil];
+}
+
+- (bool)openDB:(const char *)dbFilename_ withDirectory:(NSString*)dbDirectory
+{
     self.dbFilename = (dbFilename_ == NULL) ? nil : [NSString stringWithUTF8String:dbFilename_];
     
     // Generate the database path name
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
-	NSString *documentsDir = [paths objectAtIndex:0];
-    NSString *dbPath = [documentsDir stringByAppendingPathComponent:self.dbFilename];
+    NSString *dbPath = nil;
+    
+    if (dbDirectory == nil)
+    {
+        dbPath = [dbDirectory stringByAppendingPathComponent:self.dbFilename];
+    }
+    else
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
+        NSString *documentsDir = [paths objectAtIndex:0];
+        dbPath = [documentsDir stringByAppendingPathComponent:self.dbFilename];
+    }
     
     // Open the SQLite database with the input filename. See if we were able to open it.
     // Keep in mind SQLite WILL create an sql database file if it does not already exist. That's nice.
-    bool dbOpenedSuccessfully = (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK);
-    
-    // If we were not able to open the database successfully, for whatever reason, we still need to release it from memory
-    // using the sqlite call.
-    if (!dbOpenedSuccessfully)
+    bool dbOpenedSuccessfully = false;
+    if (dbPath != nil)
     {
-        // We still have to close the database to release all the memory.
-        [self closeDB];
+        dbOpenedSuccessfully = (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK);
+        
+        // If we were not able to open the database successfully, for whatever reason, we still need to release it from memory
+        // using the sqlite call.
+        if (!dbOpenedSuccessfully)
+        {
+            // We still have to close the database to release all the memory.
+            [self closeDB];
+        }
     }
     
     return dbOpenedSuccessfully;
@@ -165,6 +184,7 @@ extern "C" {
 	void *_SQLitePlugin_Init(const char *gameObjectName);
 	void _SQLitePlugin_Destroy(void *instance);
 	bool _SQLitePlugin_OpenDB(void *instance, const char* dbFilename);
+    bool _SQLitePlugin_OpenDBWithDirectory(void *instance, const char* dbFilename, const char* dbDirectory);
     void _SQLitePlugin_CloseDB(void *instance);
     int _SQLitePlugin_ExecuteQuery(void *instance, const char *queryString);
     bool _SQLitePlugin_ExecuteRowQuery(void *instance, const char *queryString, const char ***outRows, int *outNumValues);
@@ -186,6 +206,12 @@ bool _SQLitePlugin_OpenDB(void *instance, const char *dbFilename)
 {
 	SQLitePlugin *sqlitePlugin = (SQLitePlugin *)instance;
 	return [sqlitePlugin openDB:dbFilename];
+}
+
+bool _SQLitePlugin_OpenDBWithDirectory(void *instance, const char *dbFilename, const char* dbDirectory)
+{
+	SQLitePlugin *sqlitePlugin = (SQLitePlugin *)instance;
+	return [sqlitePlugin openDB:dbFilename withDirectory:[NSString stringWithUTF8String:dbDirectory]];
 }
 
 void _SQLitePlugin_CloseDB(void *instance)
